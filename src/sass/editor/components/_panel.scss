@@ -1,0 +1,49 @@
+/* The general styling for the side panel, including in/out animation. */
+.editor-closed {
+    width: 1rem;
+}
+
+.editor-open {
+    width: 20%;
+}
+
+.editor {
+    background-color: $dm-brown;
+    padding: 1rem 1.3rem;
+    display: flex;
+    flex-flow: column nowrap;
+
+
+    .panel-toggle {
+        margin-left: auto;
+        padding: 0.2rem;
+        font-size: 2rem;
+        background-color: transparent;
+        border: none;
+        color: $dm-white;
+        transition: .2s ease;
+
+        .fa-secondary {
+            transition: .2s ease;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(110%);
+
+            .fa-secondary {
+                fill: $dm-red;
+                opacity: 1.0;
+            }
+        }
+    }
+
+    h1 {
+        @extend %dm-heading-normal;
+        color: $dm-white;
+
+        .bold {
+            @extend %dm-heading-bold;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+/* dramate specific font styles */
+%dm-heading-bold {
+    font: {
+        family: 'Raleway', sans-serif;
+        weight: 900;
+    }
+}
+
+%dm-heading-normal {
+    font: {
+        family: 'Raleway', sans-serif;
+        weight: 400;
+    }
+}
+
+%dm-paragraph {
+    font: {
+        family: 'Open Sans', sans-serif;
+        weight: 400;
+    }
+}

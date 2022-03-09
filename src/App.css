@@ -1,39 +1,90 @@
-.App {
-  text-align: center;
+/*
+- - - - -
+dramate: Simple Actor Portfolio Site Maker
+- - - - -
+Created by Tabitha Riley
+https://www.tabithariley.digital
+https://github.com/tabitha-r
+https://www.dramate.co.uk/
+- - - - -
+Table of Contents:
+1) External Imports
+2) Abstracts
+3) Site Editor
+4) Site Preview
+5) Layout Styles
+*/
+/* 1) External Imports */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,400;0,900;1,400&display=swap");
+/* 2) Abstracts */
+/* Import all abstract files for easy import into App.scss */
+/* Mixins */
+/* Placeholders */
+/* dramate specific font styles */
+.editor h1 .bold {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.editor h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+/* Variables */
+/* dramate specific colours */
+/* 3) Site Editor */
+/* Import all editor files for easy import into App.scss */
+/* Components */
+/* The general styling for the side panel, including in/out animation. */
+.editor-closed {
+  width: 1rem;
 }
 
-.App-header {
-  min-height: 100vh;
+.editor-open {
+  width: 20%;
+}
+
+.editor {
+  background-color: #50484b;
+  padding: 1rem 1.3rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-flow: column nowrap;
+}
+.editor .panel-toggle {
+  margin-left: auto;
+  padding: 0.2rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+.editor .panel-toggle .fa-secondary {
+  transition: 0.2s ease;
+}
+.editor .panel-toggle:hover {
+  cursor: pointer;
+  transform: scale(110%);
+}
+.editor .panel-toggle:hover .fa-secondary {
+  fill: #e54b6d;
+  opacity: 1;
+}
+.editor h1 {
+  color: #ffffff;
+}
+/* 4) Site Preview */
+/* 5) Layout Styles */
+:root {
+  font-size: 18px;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+/*# sourceMappingURL=App.css.map */
