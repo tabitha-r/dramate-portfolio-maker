@@ -111,7 +111,7 @@ export const {
 
 export const selectFirstName = (state: RootState) => state.generalDetails.firstName;
 export const selectLastName = (state: RootState) => state.generalDetails.lastName;
-export const selectMiddleName = (state: RootState) => state.generalDetails.middleNames;
+export const selectMiddleNames = (state: RootState) => state.generalDetails.middleNames;
 export const selectOtherNames = (state: RootState) => state.generalDetails.otherNames;
 export const selectGender = (state: RootState) => state.generalDetails.gender;
 export const selectPronouns = (state: RootState) => state.generalDetails.pronouns;
