@@ -12,19 +12,21 @@ export interface GeneralDetailsState {
     memberships: string[];
     birthday: Date;
     showAge: boolean;
+    showBirthday: boolean;
 }
 
 const initialState: GeneralDetailsState = {
     firstName: 'First Name', 
     lastName: 'Last Name',
     middleNames: ['MiddleNameA', 'MiddleNameB'],
-    otherNames: ['OtherNameA', 'OtherNameB'],
+    otherNames: ['OtherNameA'],
     gender: 'Gender',
     pronouns: ['Preferred', 'Pronouns'],
     nationality: 'Nationality',
     memberships: ['MembershipA', 'MembershipB'],
     birthday: new Date(),
-    showAge: true
+    showAge: false,
+    showBirthday: false
 };
 
 export const generalDetailsSlice = createSlice({
@@ -49,11 +51,14 @@ export const generalDetailsSlice = createSlice({
         toggleShowAge: (state) => {
             state.showAge = !state.showAge;
         },
+        toggleShowBirthday: (state) => {
+            state.showBirthday = !state.showBirthday;
+        },
         addMiddleName: (state, action: PayloadAction<string>) => {
             state.middleNames.push(action.payload);
         },
         removeMiddleName: (state, action: PayloadAction<string>) => {
-            state.middleNames.splice(state.middleNames.indexOf(action.payload));
+            state.middleNames.splice(state.middleNames.indexOf(action.payload), 1);
         },
         clearMiddleNames: (state) => {
             state.middleNames = [];
@@ -62,16 +67,16 @@ export const generalDetailsSlice = createSlice({
             state.otherNames.push(action.payload);
         },
         removeOtherName: (state, action: PayloadAction<string>) => {
-            state.otherNames.splice(state.otherNames.indexOf(action.payload));
+            state.otherNames.splice(state.otherNames.indexOf(action.payload), 1);
         },
-        clearOtherNames: (state, action: PayloadAction<string>) => {
+        clearOtherNames: (state) => {
             state.otherNames = [];
         },
         addPronoun: (state, action: PayloadAction<string>) => {
             state.pronouns.push(action.payload);
         },
         removePronoun: (state, action: PayloadAction<string>) => {
-            state.pronouns.splice(state.pronouns.indexOf(action.payload));
+            state.pronouns.splice(state.pronouns.indexOf(action.payload), 1);
         },
         clearPronouns: (state) => {
             state.pronouns = [];
@@ -80,7 +85,7 @@ export const generalDetailsSlice = createSlice({
             state.memberships.push(action.payload);
         },
         removeMembership: (state, action: PayloadAction<string>) => {
-            state.memberships.splice(state.memberships.indexOf(action.payload));
+            state.memberships.splice(state.memberships.indexOf(action.payload), 1);
         },
         clearMemberships: (state) => {
             state.memberships = [];
@@ -106,7 +111,8 @@ export const {
     removeMembership,
     clearMemberships,
     changeBirthday,
-    toggleShowAge
+    toggleShowAge,
+    toggleShowBirthday
 } = generalDetailsSlice.actions;
 
 export const selectFirstName = (state: RootState) => state.generalDetails.firstName;
@@ -119,5 +125,6 @@ export const selectNationality = (state: RootState) => state.generalDetails.nati
 export const selectMemberships = (state: RootState) => state.generalDetails.memberships;
 export const selectBirthday = (state: RootState) => state.generalDetails.birthday;
 export const selectShowAge = (state: RootState) => state.generalDetails.showAge;
+export const selectShowBirthday = (state: RootState) => state.generalDetails.showBirthday;
 
 export default generalDetailsSlice.reducer;

@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import MenuItem from './menuItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faPaintbrushPencil, faAngleLeft, faCommentDots, faImage, faMasksTheater, faBookUser, faIdCardClip, faEye, faGraduationCap, faMobileButton, faAwardSimple, faSidebar, faInfo, faFloppyDisk } from '@fortawesome/pro-duotone-svg-icons';
+import GeneralDetailMenu from './generalMenu';
 
 const Menu:FC = () => {
     const [activeMenu, setActiveMenu] = useState('root');
@@ -167,13 +168,14 @@ const Menu:FC = () => {
                 classNames="menu-secondary">
                 <div className="menu">
                         
-                <MenuItem
+                    <MenuItem
                         leftIcon={<FontAwesomeIcon icon={faAngleLeft} fixedWidth />} 
                         goToMenu='root'
                         setActiveMenu={setActiveMenu}
                     >
                         <p>Back</p>
                     </MenuItem>
+                    <GeneralDetailMenu />
 
                 </div>
             </CSSTransition>

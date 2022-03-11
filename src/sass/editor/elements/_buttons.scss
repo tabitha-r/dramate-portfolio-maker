@@ -1,0 +1,52 @@
+.editor {
+    button.icon-button {
+        border: none;
+        background-color: transparent;
+        font-size: 1.7rem;
+        color: $dm-black;
+
+        .fa-secondary,
+        .fa-primary {
+            transition: .2s ease;
+        }
+
+        &:hover {
+            cursor: pointer;
+            
+            
+        }
+    }
+
+    button.add-button:hover {
+        .fa-primary {
+            fill: $dm-white;
+        }
+
+        .fa-secondary {
+            fill: $dm-green;
+            opacity: 1.0;
+        }
+    }
+    
+    button.remove-button:hover {
+        .fa-primary {
+            fill: $dm-white;
+        }
+
+        .fa-secondary {
+            fill: $dm-red;
+            opacity: 1.0;
+        }
+    }
+
+    button.trash-button:hover {
+        .fa-primary {
+            fill: $dm-white;
+        }
+
+        .fa-secondary {
+            fill: $dm-brown;
+            opacity: 1.0;
+        }
+    }
+}

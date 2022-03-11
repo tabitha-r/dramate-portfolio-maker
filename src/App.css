@@ -233,7 +233,7 @@ Table of Contents:
 }
 .editor-controls .menu .menu-item:hover {
   cursor: pointer;
-  background-color: #b7d58b;
+  background-color: rgba(183, 213, 139, 0.4);
   border-radius: 10px;
 }
 .editor-controls .menu .menu-item:hover .menu-icon {
@@ -246,6 +246,226 @@ Table of Contents:
 .editor-controls .menu .menu-item:hover .fa-secondary {
   opacity: 1;
   fill: #e54b6d;
+}
+
+/* Elements */
+.editor input[type=text] {
+  border: 2px solid #50484b;
+  width: 65%;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: inset 0 0 5px #282426;
+  padding: 0.5rem;
+  margin: 0.3rem 0.8rem;
+  font-family: "Raleway", sans-serif;
+  transition: 0.2s ease;
+}
+.editor input[type=text]:hover {
+  box-shadow: inset 0 0 5px #2dbad2;
+  border: 2px solid #2dbad2;
+}
+.editor input[type=date] {
+  border: none;
+  width: 60%;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: inset 0 0 5px #282426;
+  padding: 0.5rem;
+  margin: 0.8rem;
+  font-family: "Raleway", sans-serif;
+}
+.editor label.text-label {
+  font-family: "Open Sans", sans-serif;
+  margin: 1rem 0.8rem 0.2rem 1rem;
+}
+.editor .checkbox-section {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.editor .checkbox {
+  --border-default: #bbbbc1;
+  --border-hover: #9898a3;
+  --active: #b7d58b;
+  --active-tick: #ffffff;
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateY(0.4rem);
+}
+.editor .checkbox:hover {
+  cursor: pointer;
+}
+.editor .checkbox svg {
+  display: block;
+  position: absolute;
+}
+.editor .checkbox input {
+  display: block;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 36%/36%;
+  box-shadow: inset 0 0 0 1.5px var(--border, var(--border-default));
+  background: var(--background, transparent);
+  transition: background 0.25s linear, box-shadow 0.25s linear;
+}
+.editor .checkbox input + svg {
+  width: 21px;
+  height: 18px;
+  left: 0;
+  top: 0;
+  color: var(--active);
+}
+.editor .checkbox input + svg .tick {
+  stroke-dasharray: 20;
+  stroke-dashoffset: var(--stroke-dashoffset, 20);
+  transition: stroke-dashoffset 0.2s;
+}
+.editor .checkbox input + svg .tick.mask {
+  stroke: var(--active-tick);
+}
+.editor .checkbox input + svg + svg {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: var(--active);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  top: -6px;
+  right: -10px;
+  stroke-dasharray: 4.5px;
+  stroke-dashoffset: 13.5px;
+  pointer-events: none;
+  animation: var(--animation, none) 0.2s ease 0.175s;
+}
+.editor .checkbox input:checked {
+  --background: var(--active);
+  --border: var(--active);
+}
+.editor .checkbox input:checked + svg {
+  --stroke-dashoffset: 0;
+}
+.editor .checkbox input:checked + svg + svg {
+  --animation: check;
+}
+.editor .checkbox:hover input:not(:checked) {
+  --border: var(--border-hover);
+}
+@keyframes check {
+  100% {
+    stroke-dashoffset: 4.5px;
+  }
+}
+.editor html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+.editor * {
+  box-sizing: inherit;
+}
+.editor *:before, .editor *:after {
+  box-sizing: inherit;
+}
+.editor body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editor .current-list {
+  background-color: #2dbad2;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.3rem;
+  text-align: center;
+  width: 90%;
+  margin: 1rem auto;
+  transition: 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+.editor .current-list ul {
+  padding: 0.6rem;
+  margin: 0;
+  list-style: none inside;
+  width: max-content;
+  min-width: 50%;
+  background-color: #2dbad2;
+}
+.editor .current-list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  border-radius: 5px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff #2dbad2;
+}
+.editor .current-list ul li .icon-button {
+  margin-left: auto;
+}
+.editor .current-list ul li:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.editor .current-list .icon-button {
+  color: #ffffff;
+}
+
+.editor .editor-menu {
+  text-align: left;
+}
+.editor .multi-op {
+  background-color: rgba(80, 72, 75, 0.2);
+  padding: 0.6rem 1rem;
+  border-radius: 15px;
+  margin: 0.4rem 0;
+}
+
+.editor button.icon-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.7rem;
+  color: #282426;
+}
+.editor button.icon-button .fa-secondary,
+.editor button.icon-button .fa-primary {
+  transition: 0.2s ease;
+}
+.editor button.icon-button:hover {
+  cursor: pointer;
+}
+.editor button.add-button:hover .fa-primary {
+  fill: #ffffff;
+}
+.editor button.add-button:hover .fa-secondary {
+  fill: #b7d58b;
+  opacity: 1;
+}
+.editor button.remove-button:hover .fa-primary {
+  fill: #ffffff;
+}
+.editor button.remove-button:hover .fa-secondary {
+  fill: #e54b6d;
+  opacity: 1;
+}
+.editor button.trash-button:hover .fa-primary {
+  fill: #ffffff;
+}
+.editor button.trash-button:hover .fa-secondary {
+  fill: #50484b;
+  opacity: 1;
 }
 
 /* 4) Site Preview */
